@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  db:
+    image: postgres:alpine
+    container_name: db
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASS}
+    volumes:
+      - ./src/database/sql/base.sql:/docker-entrypoint-initdb.d/base.sql
